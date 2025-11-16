@@ -1,0 +1,59 @@
+/* css/students.css */
+#add-student-btn {
+    background-color: #3498db;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    transition: background-color 0.3s ease;
+}
+
+#add-student-btn:hover {
+    background-color: #2980b9;
+}
+
+.add-student-btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius-sm);
+    text-decoration: none;
+    margin-bottom: 2rem;
+    transition: background-color 0.3s ease;
+}
+
+.add-student-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+#students-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+}
+
+#students-table th,
+#students-table td {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    text-align: left;
+}
+
+#students-table th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+}
+
+#students-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#students-table .actions a {
+    color: #3498db;
+    text-decoration: none;
+    margin-right: 1rem;
+}

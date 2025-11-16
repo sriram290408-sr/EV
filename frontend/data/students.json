@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "John Doe",
+        "class": "XII-A",
+        "subjects": {
+            "Maths": 85,
+            "Physics": 90,
+            "Chemistry": 88
+        }
+    },
+    {
+        "id": 2,
+        "name": "Priya Sharma",
+        "class": "XII-A",
+        "subjects": {
+            "Maths": 92,
+            "Physics": 89,
+            "Chemistry": 95
+        }
+    },
+    {
+        "id": 3,
+        "name": "Rahul Kumar",
+        "class": "XII-B",
+        "subjects": {
+            "Maths": 78,
+            "Physics": 81,
+            "Chemistry": 75
+        }
+    }
+]
