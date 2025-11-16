@@ -1,5 +1,5 @@
-#schemas.py
-from pydantic import BaseModel, field_validator;
+# schemas.py
+from pydantic import BaseModel, field_validator
 
 class CreateBase(BaseModel):
     name: str
@@ -12,7 +12,7 @@ class CreateBase(BaseModel):
     blood_group: str | None = None
     father_name: str
     mother_name: str
-    yearly_occupation: int | str | None = None
+    yearly_occupation: int | None = None
 
     @field_validator("phone_no")
     def validate_phone(cls, value):
@@ -22,7 +22,9 @@ class CreateBase(BaseModel):
             raise ValueError("Phone number must be exactly 10 digits")
         return value
 
+
 class ResponseModel(CreateBase):
     id: int
+
     class Config:
         orm_mode = True
