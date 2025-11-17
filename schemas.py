@@ -1,4 +1,3 @@
-# schemas.py
 from pydantic import BaseModel, field_validator
 
 class CreateBase(BaseModel):
@@ -21,10 +20,23 @@ class CreateBase(BaseModel):
         if len(value) != 10:
             raise ValueError("Phone number must be exactly 10 digits")
         return value
+    
+class MarksBase(BaseModel):
+    tamil_mark: int
+    english_mark: int
+    maths_mark: int
+    science_mark: int
+    social_mark: int
 
 
 class ResponseModel(CreateBase):
     id: int
 
-    class Config:
-        model_config = {"from_attributes": True}
+    model_config = {"from_attributes": True}
+
+
+class MarksResponse(MarksBase):
+    id: int
+    student_id: int
+
+    model_config = {"from_attributes": True}

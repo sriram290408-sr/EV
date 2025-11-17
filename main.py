@@ -1,16 +1,13 @@
-# main.py
 from fastapi import FastAPI, Depends
 from sqlalchemy.orm import Session
 from database import SessionLocal, Base, engine
-from models import StudentData
-from schemas import CreateBase, ResponseModel
+from models import StudentData, StudentMarks
+from schemas import CreateBase, ResponseModel, MarksBase, MarksResponse
 
-# Create all database tables
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-# Dependency for DB session
 def get_db():
     db = SessionLocal()
     try:
@@ -19,11 +16,21 @@ def get_db():
         db.close()
 
 
-# POST - Create Student Data
-@app.post("/Datalist", response_model=ResponseModel)
-def create_data(data: CreateBase, db: Session = Depends(get_db)):
-    db_data = StudentData(**data.dict())
-    db.add(db_data)
+# POST: Create Student
+@app.post("/student", response_model=ResponseModel)
+def create_student(data: CreateBase, db: Session = Depends(get_db)):
+    db_student = StudentData(**data.dict())
+    db.add(db_student)
     db.commit()
-    db.refresh(db_data)
-    return db_data
+    db.refresh(db_student)
+    return db_student
+
+
+# POST: Add Marks for a Student
+@app.post("/student/{student_id}/marks", response_model=MarksResponse)
+def add_marks(student_id: int, marks: MarksBase, db: Session = Depends(get_db)):
+    db_marks = StudentMarks(student_id=student_id, **marks.dict())
+    db.add(db_marks)
+    db.commit()
+    db.refresh(db_marks)
+    return db_marks
