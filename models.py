@@ -2,6 +2,7 @@ from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 from database import Base
 
+
 class StudentData(Base):
     __tablename__ = "students_data"
 
@@ -26,6 +27,7 @@ class StudentMarks(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     student_id = Column(Integer, ForeignKey("students_data.id"), nullable=False, unique=True)
+
     tamil_mark = Column(Integer, nullable=False)
     english_mark = Column(Integer, nullable=False)
     maths_mark = Column(Integer, nullable=False)
