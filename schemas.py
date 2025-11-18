@@ -12,7 +12,7 @@ class CreateBase(BaseModel):
     blood_group: str | None = None
     father_name: str
     mother_name: str
-    yearly_occupation: int | None = None
+    yearly_Income: int | None = None
 
     @field_validator("phone_no")
     def validate_phone(cls, value):
