@@ -7,8 +7,7 @@ from schemas import CreateBase, ResponseModel, MarksBase, MarksResponse
 
 Base.metadata.create_all(bind=engine)
 
-app = FastAPI(docs_url="/swagger",
-    redoc_url=None)
+app = FastAPI(docs_url="/swagger")
 
 def get_db():
     db = SessionLocal()
