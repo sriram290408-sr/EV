@@ -18,7 +18,7 @@ class StudentData(Base):
     blood_group = Column(String)
     father_name = Column(String, nullable=False)
     mother_name = Column(String, nullable=False)
-    yearly_Income = Column(Integer)
+    yearly_occupation = Column(Integer)
 
     marks = relationship("StudentMarks", back_populates="student", uselist=False)
 
