@@ -1,6 +1,4 @@
-# Backend/schemas/data.py
-
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from uuid import UUID
 from datetime import date
 
@@ -9,8 +7,7 @@ class ClassOut(BaseModel):
     id: UUID
     name: str
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class SectionOut(BaseModel):
@@ -18,8 +15,7 @@ class SectionOut(BaseModel):
     class_id: UUID
     name: str
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class StudentCreate(BaseModel):
@@ -38,5 +34,4 @@ class StudentOut(BaseModel):
     gender: str | None
     dob: date | None
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
