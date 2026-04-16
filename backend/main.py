@@ -5,10 +5,9 @@ from dotenv import load_dotenv
 from routers import users, data, marks, attendance, login_logs
 from database import Base, engine
 
-# IMPORTANT: import all models so SQLAlchemy knows them
 from models.users import User
 from models.login_log import LoginLog
-from models.marks import Marks
+from models.marks import Mark
 from models.attendance import Attendance
 
 load_dotenv()
