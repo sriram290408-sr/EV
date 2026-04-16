@@ -14,6 +14,12 @@ app.include_router(marks.router)
 app.include_router(attendance.router)
 app.include_router(login_logs.router)
 
+
+@app.get("/")
+def home():
+    return {"message": "Backend Running Successfully"}
+
+
 @app.get("/health")
 def health():
     return {"status": "ok"}
