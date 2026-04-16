@@ -3,10 +3,23 @@ from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 
 from routers import users, data, marks, attendance, login_logs
+from database import Base, engine
+
+# IMPORTANT: import all models so SQLAlchemy knows them
+from models.users import User
+from models.login_log import LoginLog
+from models.marks import Marks
+from models.attendance import Attendance
 
 load_dotenv()
 
 app = FastAPI(title="EduVerse API")
+
+
+@app.on_event("startup")
+def create_tables():
+    Base.metadata.create_all(bind=engine)
+
 
 app.include_router(users.router)
 app.include_router(data.router)

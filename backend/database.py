@@ -12,6 +12,7 @@ if DATABASE_URL is None:
         "DATABASE_URL is missing. Check your .env file location and value."
     )
 
+print("DATABASE_URL =", DATABASE_URL)
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 Base = declarative_base()
