@@ -8,13 +8,6 @@ load_dotenv()
 
 app = FastAPI(title="EduVerse API")
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
 app.include_router(users.router)
 app.include_router(data.router)
 app.include_router(marks.router)
